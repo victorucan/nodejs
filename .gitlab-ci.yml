@@ -3,15 +3,15 @@ stages:
 
 deploy_main:
   stage: deploy
-  image: nestjs/cli
+  image: victorucan/nestjs
   script:
     #- apt-get update
-    - apk add --no-cache curl
+    #- apk add --no-cache curl
     # deploy to AWS:
-    - apt update
-    #- curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-    #- unzip awscliv2.zip
-    #- ls
+    - apt update -y
+    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    - unzip awscliv2.zip
+    - ls
     - pwd
     #- cd ./aws
     #- chmod +x ./dist/aws
