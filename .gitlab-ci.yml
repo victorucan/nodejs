@@ -8,14 +8,15 @@ deploy_main:
     #- apt-get update
     - apk add --no-cache curl
     # deploy to AWS:
-    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-    - unzip awscliv2.zip
-    - ls
+    - apt update
+    #- curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    #- unzip awscliv2.zip
+    #- ls
     - pwd
-    - cd ./aws
-    - chmod +x ./dist/aws
-    - ls
-    - cat install
+    #- cd ./aws
+    #- chmod +x ./dist/aws
+    #- ls
+    #- cat install
     #- ./install --update
     #- cat /usr/local/bin
     #- aws --version
