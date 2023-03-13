@@ -15,7 +15,7 @@ deploy_main:
     - cd ./aws
     - chmod +x ./dist/aws
     - ls
-    - cat aws
+    - cat install
     #- ./install --update
     #- cat /usr/local/bin
     #- aws --version
