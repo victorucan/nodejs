@@ -3,13 +3,13 @@ stages:
 
 deploy_main:
   stage: deploy
-  image: nestjs/cli
+  image: victorucan/nestjs
   script:
-    #- apt-get update
-    - apk add --no-cache curl
+    - apt-get update
+    #- apk add --no-cache curl
     # deploy to AWS:
     - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-    - unzip -o awscliv2.zip
+    - unzip -u awscliv2.zip
     - ls
     - pwd
     #- cd ./aws
@@ -17,14 +17,16 @@ deploy_main:
     #- ls
     #- cat install
     - ./aws/install 
+    - npm install
+    - npx nest build
     #- cat /usr/local/bin
     - aws --version
-    #- aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-    #- aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-    #- aws configure set region $AWS_REGION
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws configure set region $AWS_REGION
     #- aws secretsmanager get-secret-value --secret-id vars_feek
-    #- aws s3 cp /builds/victor_ucan/feek-backend-test/nodejs-$CI_COMMIT_TIMESTAMP.zip s3://$S3_BUCKET/
-    #- aws elasticbeanstalk create-application-version --application-name Feek-manager --version-label $CI_PIPELINE_IID --source-bundle S3Bucket=$S3_BUCKET,S3Key=nodejs-$CI_COMMIT_TIMESTAMP.zip --auto-create-application
-    #- aws elasticbeanstalk update-environment --application-name Feek-manager --environment-name Feekmanager-env-1 --version-label $CI_PIPELINE_IID
+    #- aws s3 cp /builds/victor_ucan/test-image/nodejs-$CI_COMMIT_TIMESTAMP.zip s3://$S3_BUCKET/
+    - aws elasticbeanstalk create-application-version --application-name Feek-manager --version-label $CI_PIPELINE_IID --source-bundle S3Bucket=$S3_BUCKET,S3Key=nodejs-$CI_COMMIT_TIMESTAMP.zip --auto-create-application
+    - aws elasticbeanstalk update-environment --application-name Feek-manager --environment-name Feekmanager-env-1 --version-label $CI_PIPELINE_IID
   only:
     - main
