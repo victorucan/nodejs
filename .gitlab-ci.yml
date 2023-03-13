@@ -12,8 +12,8 @@ deploy_main:
     - unzip awscliv2.zip
     - ls
     - pwd
-    #- cd ./aws
-    #- ls
+    - cd ./aws
+    - ls
     #- ./install --update
     #- cat /usr/local/bin
     #- aws --version
