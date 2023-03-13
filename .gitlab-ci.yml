@@ -15,7 +15,8 @@ deploy_main:
     - cd ./aws
     - chmod +x ./dist/aws
     - ls
-    - ./install --update
+    - cat aws
+    #- ./install --update
     #- cat /usr/local/bin
     #- aws --version
     #- aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
