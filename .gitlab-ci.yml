@@ -6,16 +6,16 @@ deploy_main:
   image: nestjs/cli
   script:
     #- apt-get update
-    #- apk add --no-cache curl
+    - apk add --no-cache curl
     # deploy to AWS:
-    #- curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-    #- unzip awscliv2.zip
+    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    - unzip awscliv2.zip
     #- ls
     #- pwd
     #- cd ./aws
     #- ls
-    #- ./install --update
-    #- cat /usr/local/bin
+    - ./install --update
+    - cat /usr/local/bin
     - aws --version
     #- aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     #- aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
