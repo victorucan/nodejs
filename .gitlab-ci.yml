@@ -12,7 +12,7 @@ deploy_main:
     - unzip awscliv2.zip
     - ls
     - pwd
-    - cd ./dist
+    - cd ./aws
     - chmod +x ./dist/aws
     - ls
     #- ./install --update
